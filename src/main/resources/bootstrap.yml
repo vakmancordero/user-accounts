@@ -1,5 +1,4 @@
 
-
 spring:
   application:
     name: user-accounts
@@ -15,7 +14,3 @@ spring:
         max-interval: 7000
         max-attempts: 50
       fail-fast: false
-
-debug: true
-server:
-  port: 8082
