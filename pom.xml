@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tecgurus</groupId>
-	<artifactId>config-client-app</artifactId>
+	<artifactId>user-accounts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>config-client-app</name>
-	<description>Demo project for Spring Boot</description>
+	<name>user-accounts</name>
+	<description>UserAccounts microservice</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -30,7 +30,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -73,6 +72,25 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<profiles>
+						<profile>
+							<id>dev</id>
+							<activation>
+								<activeByDefault>true</activeByDefault>
+							</activation>
+							<properties>
+								<spring.profiles.active>dev</spring.profiles.active>
+							</properties>
+						</profile>
+						<profile>
+							<id>test</id>
+							<properties>
+								<spring.profiles.active>test</spring.profiles.active>
+							</properties>
+						</profile>
+					</profiles>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
